@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Video Game Physics</title>
+  <title>Gravity</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   <script src="https://unpkg.com/vue"></script>
   <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
@@ -26,7 +26,7 @@
           <a class="nav-link navbar-custom" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item navbar-custom">
-          <a class="nav-link navbar-custom" href="gravity.html">Link</a>
+          <a class="nav-link navbar-custom" href="#">Link</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -43,19 +43,9 @@
     </div>
   </nav>
   <!-- end nav -->
-  <!-- start header -->
-  <div class="jumbotron" id="head" class="section">
-    <div class="container">
-      <div class="greeting">
-        <h1 class="pixel text-center">Video Game Physics</h1>
-        <p class="text-center">The basics of physics needed to start coding video games.</p>
-      </div>
-    </div>
-  </div>
-  <!-- end header -->
   <div class="container" id="lessons">
     <div class="intro">
-    <h1 class="pixel" style="float: left">Why?</h1>
+    <h1 class="pixel" style="float: left">Gravity</h1>
     <p>
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis euismod aliquet. Ut eu lacus nulla. Integer a est hendrerit, vulputate eros ut, pulvinar erat. Suspendisse lacinia pulvinar risus. Maecenas bibendum vel felis vitae dignissim. Nulla vitae pulvinar libero, at dictum libero. Fusce odio magna, tristique a neque ut, pulvinar imperdiet turpis. Cras tellus felis, egestas in magna vel, viverra feugiat odio. Vivamus ut odio bibendum, semper arcu in, euismod risus.
@@ -67,7 +57,10 @@ In vehicula, dui ac blandit ullamcorper, odio quam euismod lacus, ac gravida fel
 Vivamus ligula orci, accumsan in congue vel, facilisis in velit. Fusce ac auctor augue, eu pulvinar est. Nulla id diam non est egestas auctor. Cras scelerisque tortor ante, eu feugiat libero auctor maximus. Phasellus sollicitudin varius ante, et laoreet elit interdum vel. Cras egestas urna non mi congue, eu consectetur arcu aliquam. Ut ut sem sed lectus tristique elementum. Etiam porta mi augue, sit amet feugiat sem volutpat vitae. Nunc volutpat tortor nec nisl interdum egestas vitae nec justo. Nam posuere laoreet arcu eu pretium. Mauris at tristique justo, vel auctor quam. Aliquam ultrices cursus magna vulputate lobortis. Donec vel elit nec arcu vulputate euismod. Suspendisse volutpat faucibus neque sit amet congue.
 
 Nunc fringilla tellus neque, non placerat lectus molestie et. Cras felis sapien, elementum vitae volutpat non, facilisis vel sem. Vivamus vestibulum varius vulputate. Nulla a pretium dolor, vitae malesuada velit. Donec hendrerit a justo vel placerat. Cras tristique vehicula lorem quis convallis. Phasellus malesuada ut purus non porta. Sed ut pretium turpis. Vivamus dui tellus, consectetur mollis metus nec, commodo hendrerit justo. Donec consequat pulvinar nibh at vestibulum. Phasellus sed lectus vel nibh tempor elementum eget ut quam. </p>
-
-
+<div id="grav-wrap">
+  <button v-on:click="reset">reset</button>
+  <input type="number" v-model.number="ay" v-on:change="reset"/>
+</div>
+<script src="javascript/gravity.js"></script>
 </body>
 </html>

@@ -1,42 +1,53 @@
-var xinit = 10;
-var yinit = 5;
-var vxinit = 0;
-var vyinit = 0;
-var axinit = 0;
-var ayinit = 2;
+new p5();
 
-function getCanvas() {
-  return document.getElementById("grav").getContext('2d');
-}
-
-function clearCanvas() {
-  // TODO
-}
-
-function addRect() {
-  var c = app.canvas.getContext("2d");
-  c.fillRect(app.x, app.y, 10, 10);
-}
-function setVue() {
-  return new Vue({
+var app;
+function setup() {
+  var width = 300, height = 300;
+  var xi = width / 2, yi = 5;
+  var vxi = 0, vyi = 0;
+  var axi = 0, ayi = 0.2;
+  var r = 20;
+  app = new Vue({
     el: '#grav-wrap',
     data: {
-      x: xinit,
-      y: yinit,
-      vx: vxinit,
-      vy: vyinit,
-      ax: axinit,
-      ay: ayinit,
-      canvas: getCanvas()
+      x: xi,
+      y: yi,
+      vx: vxi,
+      vy: vyi,
+      ax: axi,
+      ay: ayi,
+      r: r
     },
-    directives: {
-      addRect: function(canvas, binding) {
-        ctx = canvas.getContext("2d");
-        ctx.clearRect(0, 0, 1000, 1000);
-        ctx.fillRect(binding.value, binding.value, 10, 10);
+    methods: {
+      show: function() {
+        ellipse(app.x, app.y, app.r, app.r);
+      },
+      applyPhysics: function() {
+        app.x += app.vx;
+        app.y += app.vy;
+        app.vx += app.ax;
+        app.vy += app.ay;
+      },
+      reset: function() {
+        app.x = xi;
+        app.y = yi;
+        app.vx = vxi;
+        app.vy = vyi;
+        loop();
       }
     }
   });
+  createCanvas(width, height);
 }
 
-var app = setVue();
+function draw() {
+  background(0);
+  app.show();
+
+  if (app.y >= width) {
+    noLoop();
+  } else {
+    app.applyPhysics();
+  }
+
+}

@@ -3,6 +3,10 @@ body {
     color: white;
 }
 
+nav {
+  background-color: white;
+}
+
 .pixel {
   font-family: 'VT323', monospace;
   font-size: 5em;
@@ -19,7 +23,7 @@ body {
 
 #head {
   witdh: 100%;
-  height: 90vh;
+  height: 80vh;
   background-image: url("../resources/controllers.png");
   -webkit-background-size: cover;
   -moz-background-size: cover;
