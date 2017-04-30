@@ -7,6 +7,14 @@ nav {
   background-color: white;
 }
 
+.right {
+  align-self: flex-end;
+}
+
+.grow {
+  flex: 1;
+}
+
 .pixel {
   font-family: 'VT323', monospace;
   font-size: 5em;
