@@ -29,6 +29,11 @@ nav {
   margin-top: 10%;
 }
 
+.section-title {
+  float: left;
+  margin-right: 10px;
+}
+
 #head {
   witdh: 100%;
   height: 80vh;

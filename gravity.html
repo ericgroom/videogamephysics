@@ -4,8 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Gravity</title>
+  <title>Video Game Physics</title>
+  <script src="http://code.jquery.com/jquery-3.2.1.min.js"
+			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			  crossorigin="anonymous"></script>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/vue"></script>
   <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
@@ -18,24 +22,24 @@
     <button class="navbar-toggler navbar-toggler-right navbar-custom" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon navbar-custom"></span>
     </button>
-    <a class="navbar-brand navbar-custom" href="#">Navbar</a>
-
+    <a class="navbar-brand navbar-custom" href="index.html">VGP</a>
+    <span class="grow"></span>
     <div class="collapse navbar-collapse navbar-custom" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto navbar-custom">
         <li class="nav-item active navbar-custom">
-          <a class="nav-link navbar-custom" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link navbar-custom" href="index.html">Home</a>
         </li>
         <li class="nav-item navbar-custom">
-          <a class="nav-link navbar-custom" href="#">Link</a>
+          <a class="nav-link navbar-custom" href="about.html">About</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Topics
+            Topics <span class="sr-only">(current)</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Gravity</a>
-            <a class="dropdown-item" href="#">Force</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" href="gravity.html">Gravity <span class="sr-only">(current)</span></a>
+            <a class="dropdown-item" href="projectile.html">Projectile Motion</a>
+            <a class="dropdown-item" href="collision.html">Collision</a>
           </div>
       </li>
       </ul>
@@ -45,7 +49,7 @@
   <!-- end nav -->
   <div class="container" id="lessons">
     <div class="intro">
-    <h1 class="pixel" style="float: left">Gravity</h1>
+    <h1 class="pixel section-title">Gravity</h1>
     <p>
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis euismod aliquet. Ut eu lacus nulla. Integer a est hendrerit, vulputate eros ut, pulvinar erat. Suspendisse lacinia pulvinar risus. Maecenas bibendum vel felis vitae dignissim. Nulla vitae pulvinar libero, at dictum libero. Fusce odio magna, tristique a neque ut, pulvinar imperdiet turpis. Cras tellus felis, egestas in magna vel, viverra feugiat odio. Vivamus ut odio bibendum, semper arcu in, euismod risus.
@@ -57,10 +61,15 @@ In vehicula, dui ac blandit ullamcorper, odio quam euismod lacus, ac gravida fel
 Vivamus ligula orci, accumsan in congue vel, facilisis in velit. Fusce ac auctor augue, eu pulvinar est. Nulla id diam non est egestas auctor. Cras scelerisque tortor ante, eu feugiat libero auctor maximus. Phasellus sollicitudin varius ante, et laoreet elit interdum vel. Cras egestas urna non mi congue, eu consectetur arcu aliquam. Ut ut sem sed lectus tristique elementum. Etiam porta mi augue, sit amet feugiat sem volutpat vitae. Nunc volutpat tortor nec nisl interdum egestas vitae nec justo. Nam posuere laoreet arcu eu pretium. Mauris at tristique justo, vel auctor quam. Aliquam ultrices cursus magna vulputate lobortis. Donec vel elit nec arcu vulputate euismod. Suspendisse volutpat faucibus neque sit amet congue.
 
 Nunc fringilla tellus neque, non placerat lectus molestie et. Cras felis sapien, elementum vitae volutpat non, facilisis vel sem. Vivamus vestibulum varius vulputate. Nulla a pretium dolor, vitae malesuada velit. Donec hendrerit a justo vel placerat. Cras tristique vehicula lorem quis convallis. Phasellus malesuada ut purus non porta. Sed ut pretium turpis. Vivamus dui tellus, consectetur mollis metus nec, commodo hendrerit justo. Donec consequat pulvinar nibh at vestibulum. Phasellus sed lectus vel nibh tempor elementum eget ut quam. </p>
-<div id="grav-wrap">
-  <button v-on:click="reset">reset</button>
-  <input type="number" v-model.number="ay" v-on:change="reset"/>
+<div id="grav-wrap" class="row align-items-center">
+  <div class="col-md-3">
+    <input type="number" v-model.number="ay" v-on:change="reset"/>
+  </div>
+  <div class="col-md-1">
+    <button v-on:click="reset" class="btn">reset</button>
+  </div>
+  <div class="col-md-8" id="p5cnv"> </div>
 </div>
-<script src="javascript/gravity.js"></script>
+    <script src="javascript/gravity.js"></script>
 </body>
 </html>
