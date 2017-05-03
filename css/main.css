@@ -34,6 +34,29 @@ nav {
   margin-right: 10px;
 }
 
+p a {
+  color: white;
+  text-decoration: underline;
+}
+
+p a:hover {
+  color: grey;
+}
+
+.about {
+  color: black;
+  padding: 1em;
+  margin: 2em;
+}
+
+.about h1 {
+  font-family: 'VT323', monospace;
+}
+
+.about a {
+  color: black;
+}
+
 #head {
   witdh: 100%;
   height: 80vh;

@@ -51,19 +51,37 @@
     <div class="intro">
     <h1 class="pixel section-title">Gravity</h1>
     <p>
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis euismod aliquet. Ut eu lacus nulla. Integer a est hendrerit, vulputate eros ut, pulvinar erat. Suspendisse lacinia pulvinar risus. Maecenas bibendum vel felis vitae dignissim. Nulla vitae pulvinar libero, at dictum libero. Fusce odio magna, tristique a neque ut, pulvinar imperdiet turpis. Cras tellus felis, egestas in magna vel, viverra feugiat odio. Vivamus ut odio bibendum, semper arcu in, euismod risus.
-
-Cras ornare leo purus. Aliquam lacinia nunc id justo fermentum tincidunt. Nullam euismod, libero at fermentum posuere, felis mi dignissim dui, tincidunt ornare nunc risus eu magna. Morbi rhoncus dapibus rhoncus. Sed rhoncus sed purus at volutpat. Phasellus feugiat consectetur felis eget tempus. In tellus tellus, egestas ac gravida porta, laoreet a felis. Fusce ac faucibus tellus. Donec congue augue ut nisi tempus, convallis dignissim magna sodales. Praesent at tempus massa. Curabitur mi lorem, convallis nec tortor vitae, egestas viverra dolor.
-
-In vehicula, dui ac blandit ullamcorper, odio quam euismod lacus, ac gravida felis urna in arcu. Integer gravida accumsan ligula interdum suscipit. Duis tempus tellus nec dignissim pellentesque. Fusce semper pellentesque rhoncus. Vestibulum mattis cursus ex, non viverra neque imperdiet ut. Donec convallis blandit arcu, in fermentum nunc laoreet non. Quisque quam ex, consequat at faucibus non, dignissim sit amet libero. Praesent porttitor maximus varius. Nunc sagittis, urna sed pulvinar finibus, arcu neque ornare magna, sed suscipit nisl diam vel arcu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin quis ultrices arcu. Mauris pellentesque urna quis quam porttitor sagittis. Nunc semper orci erat, a sollicitudin velit ornare id. Sed sollicitudin at enim id condimentum. Cras tincidunt erat risus, a pretium metus sodales non. In pharetra eros velit, eget placerat leo faucibus vitae.
-
-Vivamus ligula orci, accumsan in congue vel, facilisis in velit. Fusce ac auctor augue, eu pulvinar est. Nulla id diam non est egestas auctor. Cras scelerisque tortor ante, eu feugiat libero auctor maximus. Phasellus sollicitudin varius ante, et laoreet elit interdum vel. Cras egestas urna non mi congue, eu consectetur arcu aliquam. Ut ut sem sed lectus tristique elementum. Etiam porta mi augue, sit amet feugiat sem volutpat vitae. Nunc volutpat tortor nec nisl interdum egestas vitae nec justo. Nam posuere laoreet arcu eu pretium. Mauris at tristique justo, vel auctor quam. Aliquam ultrices cursus magna vulputate lobortis. Donec vel elit nec arcu vulputate euismod. Suspendisse volutpat faucibus neque sit amet congue.
-
-Nunc fringilla tellus neque, non placerat lectus molestie et. Cras felis sapien, elementum vitae volutpat non, facilisis vel sem. Vivamus vestibulum varius vulputate. Nulla a pretium dolor, vitae malesuada velit. Donec hendrerit a justo vel placerat. Cras tristique vehicula lorem quis convallis. Phasellus malesuada ut purus non porta. Sed ut pretium turpis. Vivamus dui tellus, consectetur mollis metus nec, commodo hendrerit justo. Donec consequat pulvinar nibh at vestibulum. Phasellus sed lectus vel nibh tempor elementum eget ut quam. </p>
+      While gravity might not be the most interesting of topics, it is something
+      that will allow us to talk about important physics concecpts, and is something
+      that you experience in your everyday-life. The way that things are positioned
+      on the sceen is very similar to an x-y plane. The screen is mapped out by pixels,
+      so when we want to position something on the screen, we use pixels witin the range
+      0 to height for the y direction and 0 to width for the x direction. In order to move
+      an object on the screen, we simply need to change the x and y position of the object,
+      remove the old object and display the new one. By doing this very quickly, we can
+      simulate animation. This adjusting of the position of the position of the object
+      is what's known as velocity. While the units of measurement for position are pixels,
+      the units of velocity are pixels per frame, or the number of pixels that the object
+      moves in every unit of time. So, we can vary the position of the object gradually
+      by repeatedly adding the velocity to the position. Where this gets a bit confusing
+      if you have a math or physics background, is since our range is from 0 to height,
+      in order to move the object down on the screen, you need a positive velocity. Now
+      let's take this idea of position and velocity one step further by changing the
+      velocity by a constant amount each frame a.k.a. acceleration. So, for each frame,
+      we add the velocity to the position, and we add the acceleration to the velocity.
+      This is important because gravity is simply an acceleration on an object. Here
+      on Earth, the "acceleration constant" of gravity is 9.8m/s<sup>2</sup> (meters per second
+      squared). Unless you have a screen taller than 10 meters, your object would travel
+      the entire height of your screen in one frame so this number isn't very important
+      for us. We are interested in pixels per frame squared (p/f<sup>2</sup>). You don't have
+      to understand this unit, but understand how it changes the velocity each frame.
+      Down in the example below, you can adjust this "acceleration constant" to see how it
+      affects the particle.
+    </p>
 <div id="grav-wrap" class="row align-items-center">
   <div class="col-md-3">
-    <input type="number" v-model.number="ay" v-on:change="reset"/>
+    <input type="number" v-model.number="ay" v-on:change="reset" aria-describedby="units"/>
+    <small id="units">p/f<sup>2</sup></small>
   </div>
   <div class="col-md-1">
     <button v-on:click="reset" class="btn">reset</button>
