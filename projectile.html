@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Projectile Motion</title>
+  <script src="http://code.jquery.com/jquery-3.2.1.min.js"
+			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			  crossorigin="anonymous"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/vue"></script>
+  <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/navbar-custom.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.8/p5.min.js"></script>
+</head>
+<body>
+  <!-- start nav -->
+  <nav class="navbar navbar-toggleable-md navbar-light bg-faded navbar-custom sticky-top">
+    <button class="navbar-toggler navbar-toggler-right navbar-custom" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon navbar-custom"></span>
+    </button>
+    <a class="navbar-brand navbar-custom" href="index.html">VGP</a>
+    <span class="grow"></span>
+    <div class="collapse navbar-collapse navbar-custom" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto navbar-custom">
+        <li class="nav-item active navbar-custom">
+          <a class="nav-link navbar-custom" href="index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item navbar-custom">
+          <a class="nav-link navbar-custom" href="about.html">About</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Topics
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="gravity.html">Gravity</a>
+            <a class="dropdown-item" href="projectile.html">Projectile Motion</a>
+            <a class="dropdown-item" href="collision.html">Collision</a>
+          </div>
+      </li>
+      </ul>
+
+    </div>
+  </nav>
+  <!-- end nav -->
+  <div class="container" id="lessons">
+    <div class="intro">
+    <h1 class="pixel section-title text-right">Projectile <br> Motion</h1>
+    <p>
+      If you didn't read the last lesson on gravity and aren't familiar with basic
+      physics terms such as position, velocity, and acceleration I would highly
+      recommend you go back and read the previous lesson as it clears these terms
+      up. Projectile motion is one of the most used physics concepts in video games,
+      most notably in first person shooters. Projectile motion refers to how an object
+      moves across the screen when it is affected by some initial force, and the force
+      of gravity. In shooters, this is used to simulate bullet drop. Without projectile
+      motion in your game, bullets would travel an infinite distance. So, what is
+      projectile motion in our use case? Usually, we will have gravity acting on
+      the object as well as the object having an initial velocity in the x direction
+      with everything else set to 0. So, in each frame, the acceleration of gravity
+      is added to the velocity in the y direction (keep in mind this is a positive number
+      due to the range of pixels), which is added to the objects y position; and
+      for the x direction, the initial x velocity is added to the x position. The
+      combinations of these two will move your object in a smooth, curved path until
+      it hits the ground (or plunges to infinity if you don't have your object stop
+      when it hits the ground). In case you are interested the general equation for
+      projectile motion is: x<sub>f</sub>=x<sub>i</sub>+v<sub>i</sub>t+at<sup>2</sup>
+      where x can be subbed for y, x<sub>i</sub> is the initial x position, v<sub>i</sub>
+      is the initial velocity, t is time which is in frames for our use. In the example
+      below, you can try varying the acceleration constant of gravity and the initial
+      velocity in the x direction.
+    </p>
+<div id="proj-wrap" class="row align-items-center">
+  <div class="col-md-3">
+    <input type="number" v-model.number="ay" v-on:change="reset" aria-describedby="acc"/>
+    <small id="acc">p/f<sup>2</sup> a<sub>y</sub></small>
+    <input type="number" v-model.number="vx" v-on:change="reset" aria-descirbedby="vel"/>
+    <small id="vel">p/f v<sub>xi</sub></small>
+  </div>
+  <div class="col-md-1">
+    <button v-on:click="reset" class="btn">reset</button>
+  </div>
+  <div class="col-md-8" id="p5cnv"> </div>
+</div>
+    <script src="javascript/projectile.js"></script>
+</body>
+</html>
