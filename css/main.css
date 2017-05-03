@@ -65,7 +65,7 @@ footer a:hover {
   color: grey;
 }
 
-a input {
+a, input {
   z-index: 9999;
 }
 
