@@ -76,13 +76,13 @@
     </p>
 <div id="proj-wrap" class="row align-items-center">
   <div class="col-md-3">
-    <input type="number" v-model.number="ay" v-on:change="reset" aria-describedby="acc"/>
+    <input type="number" v-model.number="ay" @change="reset" aria-describedby="acc"/>
     <small id="acc">p/f<sup>2</sup> a<sub>y</sub></small>
-    <input type="number" v-model.number="vx" v-on:change="reset" aria-descirbedby="vel"/>
+    <input type="number" v-model.number="vx" @change="reset" aria-descirbedby="vel"/>
     <small id="vel">p/f v<sub>xi</sub></small>
   </div>
   <div class="col-md-1">
-    <button v-on:click="reset" class="btn">reset</button>
+    <button @click="reset" @touchstart="reset" class="btn">reset</button>
   </div>
   <div class="col-md-8" id="p5cnv"> </div>
 </div>

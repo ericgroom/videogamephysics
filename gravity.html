@@ -80,11 +80,11 @@
     </p>
 <div id="grav-wrap" class="row align-items-center">
   <div class="col-md-3">
-    <input type="number" v-model.number="ay" v-on:change="reset" aria-describedby="units"/>
+    <input type="number" v-model.number="ay" @change="reset" aria-describedby="units"/>
     <small id="units">p/f<sup>2</sup></small>
   </div>
   <div class="col-md-1">
-    <button v-on:click="reset" class="btn">reset</button>
+    <button @click="reset" @touchstart="reset" class="btn">reset</button>
   </div>
   <div class="col-md-8" id="p5cnv"> </div>
 </div>
