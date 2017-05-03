@@ -45,7 +45,7 @@ function Thing(x, y, vx, vy, r) {
 var things;
 var app;
 function setup() {
-  cwidth = () => $('#p5cnv')[0].offsetWidth;
+  cwidth = () => $('#p5cnv')[0].offsetWidth - 10;
   cheight = () => 300;
   var val = 2;
   app = new Vue({

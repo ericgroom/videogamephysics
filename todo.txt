@@ -1,0 +1,5 @@
+TODO fix collisions by using 2d
+TODO Use images to spice up animations
+TODO Vue production version
+TODO PUSH TO SCHOOL SERVER!!!!
+TODO next and previous buttons

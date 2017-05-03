@@ -1,10 +1,11 @@
 new p5();
 
 var app;
+var cwidth, cheight;
 function setup() {
-  var width = $('#p5cnv')[0].offsetWidth;
-  var height = 300;
-  var xi = $('#p5cnv')[0].offsetWidth / 2, yi = 5;
+  cwidth = () => $('#p5cnv')[0].offsetWidth - 10;
+  cheight = () => 300;
+  var xi = cwidth() / 2, yi = 5;
   var vxi = 0, vyi = 0;
   var axi = 0, ayi = 0.2;
   var r = 20;
@@ -32,7 +33,7 @@ function setup() {
         app.vy += app.ay;
       },
       reset: function() {
-        app.x = $('#p5cnv')[0].offsetWidth / 2;
+        app.x = cwidth() / 2;
         app.y = yi;
         app.vx = vxi;
         app.vy = vyi;
@@ -40,7 +41,7 @@ function setup() {
       }
     }
   });
-  var cnv = createCanvas(width, height);
+  var cnv = createCanvas(cwidth(), cheight());
   cnv.parent('p5cnv');
 }
 
@@ -48,7 +49,7 @@ function draw() {
   background(210);
   app.show();
 
-  if (app.y >= width) {
+  if (app.y >= cwidth()) {
     noLoop();
   } else {
     app.applyPhysics();
@@ -57,5 +58,5 @@ function draw() {
 }
 
 function windowResized() {
-  resizeCanvas($('#p5cnv')[0].offsetWidth, height);
+  resizeCanvas(cwidth(), cheight());
 }
