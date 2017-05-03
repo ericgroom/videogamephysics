@@ -73,9 +73,9 @@
 <div id="coll-wrap" class="row align-items-center">
   <div class="col-md-3">
     <p> Number of circles: {{ val }}</p>
-    <button v-on:click="add" class="btn">add</button>
-    <button v-on:click="remove" class="btn">remove</button>
-    <button v-on:click="reset" class="btn">reset</button>
+    <button @touchstart="add" @click="add" class="btn">add</button>
+    <button @touchstart="remove" @click="remove" class="btn">remove</button>
+    <button @touchstart="reset" @click="reset" class="btn">reset</button>
   </div>
   <div class="col-md-9" id="p5cnv"> </div>
 </div>
