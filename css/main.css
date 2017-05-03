@@ -65,6 +65,9 @@ footer a:hover {
   color: grey;
 }
 
+a input {
+  z-index: 9999;
+}
 
 .navbar-nav {
     margin: 0;
