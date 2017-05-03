@@ -74,7 +74,7 @@
       below, you can try varying the acceleration constant of gravity and the initial
       velocity in the x direction.
     </p>
-<div id="proj-wrap" class="row align-items-center">
+<div id="proj-wrap" class="row align-items-center container-fluid">
   <div class="col-md-3">
     <input type="number" v-model.number="ay" @change="reset" aria-describedby="acc"/>
     <small id="acc">p/f<sup>2</sup> a<sub>y</sub></small>
@@ -84,7 +84,7 @@
   <div class="col-md-1">
     <button @click="reset" @touchstart="reset" class="btn">reset</button>
   </div>
-  <div class="col-md-8" id="p5cnv"> </div>
+  <div class="col-md-7" id="p5cnv"> </div>
 </div>
     <script src="javascript/projectile.js"></script>
 </body>
